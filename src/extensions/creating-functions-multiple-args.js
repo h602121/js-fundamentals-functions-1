@@ -57,14 +57,18 @@ function timeFunction(time, number){
 
   
 
-  let newDate = date.toLocaleTimeString([], {hour: "2-digit", minute: "2-digit"})
+  let newDate = date.toTimeString([], {hour: "2-digit", minute: "2-digit"})
+
   
-  let formattedTime = newDate
-  if(newDate[0] == "0" && newDate[1] != "0"){
-    formattedTime = newDate.replace(/^0/, '');
+  
+  let formattedTime = newDate.split(" ")
+  let newFormattedTime = formattedTime[0]
+ let evenNewerFormattedTime = newFormattedTime.slice(0,5)
+  if(evenNewerFormattedTime[0] == "0" && evenNewerFormattedTime[1] != "0"){
+    evenNewerFormattedTime = evenNewerFormattedTime.replace(/^0/, '');
   }
 
-  return formattedTime
+  return evenNewerFormattedTime
 
 }
 // TODO: change the exported value to be the name of the function you defined
